@@ -10,4 +10,4 @@ import { MongooseModule } from '@nestjs/mongoose';
   ],
   exports: [MongooseModule],
 })
-export class GraphQLModule {}
+export class DatabaseModule {}
