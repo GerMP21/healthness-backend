@@ -6,4 +6,3 @@ import { DatabaseModule } from './common/modules/database/database.module';
   imports: [GraphQLModule, DatabaseModule],
 })
 export class AppModule {}
-x
