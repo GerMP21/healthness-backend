@@ -39,11 +39,9 @@ export class Workout {
     exercises: [Types.ObjectId];
 
     @Field()
-    @Prop()
     createdAt: Date;
 
     @Field()
-    @Prop()
     updatedAt: Date;
 }
 
