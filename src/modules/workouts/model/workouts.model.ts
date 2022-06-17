@@ -20,11 +20,7 @@ export class Workout {
 
     @Field()
     @Prop()
-    type: string;
-
-    @Field()
-    @Prop()
-    duration: number;
+    durationMinutes: number;
     
     @Field()
     @Prop()
@@ -38,18 +34,9 @@ export class Workout {
     @Prop()
     caloriesBurned: number;
 
-    @Field()
+    @Field(() => [ObjectIdScalar])
     @Prop()
-    exercises: [{
-        name: string,
-        description: string,
-        duration: number,
-        intensity: string,
-        caloriesBurned: number,
-        equipment: string,
-        video: string,
-        videoThumbnail: string,
-    }];
+    exercises: [Types.ObjectId];
 
     @Field()
     @Prop()
