@@ -3,5 +3,5 @@ export enum ExerciseTypeEnum {
     STRENGTH = 'strength',
     BALANCE = 'balance',
     STRETCHING = 'stretching'
-  }
+}
   
