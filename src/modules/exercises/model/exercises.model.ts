@@ -25,6 +25,12 @@ export class Exercise {
     @Field()
     @Prop()
     video: string;
+
+    @Field()
+    createdAt: Date;
+
+    @Field()
+    updatedAt: Date;
 }
 
 export type ExerciseDocument = Exercise & Document;
