@@ -13,15 +13,15 @@ export class Exercise {
     @Field()
     @Prop()
     name: string;
-   
+
     @Field()
     @Prop()
     type: string;
-    
+
     @Field()
     @Prop()
     equipment: string;
-    
+
     @Field()
     @Prop()
     video: string;

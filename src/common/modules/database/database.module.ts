@@ -6,7 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
         MongooseModule.forRoot('mongodb+srv://app:UdykBLKAihKWL2aA@serverlessinstance0.20oqd.mongodb.net/healthness?retryWrites=true&w=majority', {
             useNewUrlParser: true
         }),
-  ],
-  exports: [MongooseModule],
+    ],
+    exports: [MongooseModule],
 })
-export class DatabaseModule {}
+export class DatabaseModule { }

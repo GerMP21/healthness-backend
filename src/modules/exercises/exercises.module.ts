@@ -16,4 +16,4 @@ import { ObjectIdScalar } from '../../common/scalars/object-id.scalar';
   ],
   providers: [ExercisesResolver, ExercisesService, ObjectIdScalar]
 })
-export class ExercisesModule {}
+export class ExercisesModule { }

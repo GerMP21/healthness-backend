@@ -4,4 +4,3 @@ export enum ExerciseTypeEnum {
     BALANCE = 'balance',
     STRETCHING = 'stretching'
 }
-  

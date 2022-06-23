@@ -5,4 +5,4 @@ import { DatabaseModule } from './common/modules/database/database.module';
 @Module({
   imports: [GraphQLModule, DatabaseModule],
 })
-export class AppModule {}
+export class AppModule { }
