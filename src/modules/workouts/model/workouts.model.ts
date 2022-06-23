@@ -38,12 +38,6 @@ export class Workout {
     @Field(() => [WorkoutExercise], { nullable: true })
     @Prop({ default: [] })
     exercises: WorkoutExercise[];
-
-    @Field()
-    createdAt: Date;
-
-    @Field()
-    updatedAt: Date;
 }
 
 export const WorkoutSchema = SchemaFactory.createForClass(Workout);

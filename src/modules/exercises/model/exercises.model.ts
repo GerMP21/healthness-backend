@@ -24,12 +24,6 @@ export class Exercise {
     @Field(() => String)
     @Prop()
     equipment: string;
-
-    @Field()
-    createdAt: Date;
-
-    @Field()
-    updatedAt: Date;
 }
 
 export type ExerciseDocument = Exercise & Document;
