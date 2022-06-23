@@ -6,23 +6,22 @@ import { ObjectIdScalar } from 'src/common/scalars/object-id.scalar';
 @ObjectType()
 @Schema({ timestamps: true })
 export class Exercise {
-
     @Field(() => ObjectIdScalar)
     _id: Types.ObjectId;
 
-    @Field()
+    @Field(() => String)
     @Prop()
     name: string;
 
-    @Field()
+    @Field(() => String)
     @Prop()
     description: string;
 
-    @Field()
+    @Field(() => String)
     @Prop()
     type: string;
 
-    @Field()
+    @Field(() => String)
     @Prop()
     equipment: string;
 
