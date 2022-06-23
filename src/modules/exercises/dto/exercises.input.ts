@@ -56,6 +56,13 @@ export class UpdateExerciseInput {
   @Field(() => String)
   name: string;
 
+  @IsOptional()
+  @IsString()
+  @MinLength(5)
+  @MaxLength(500)
+  @Field(() => String, { nullable: true })
+  description: string;
+
   @IsNotEmpty()
   @IsEnum(ExerciseTypeEnum)
   @Field(() => ExerciseTypeEnum)
@@ -67,11 +74,4 @@ export class UpdateExerciseInput {
   @MaxLength(100)
   @Field(() => String, { nullable: true })
   equipment?: string;
-
-  @IsOptional()
-  @IsString()
-  @MinLength(5)
-  @MaxLength(200)
-  @Field(() => String, { nullable: true })
-  video?: string;
 }
