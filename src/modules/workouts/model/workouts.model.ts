@@ -20,7 +20,7 @@ export class Workout {
 
     @Field()
     @Prop()
-    durationMinutes: number;
+    aproxDurationMinutes: number;
     
     @Field()
     @Prop()
