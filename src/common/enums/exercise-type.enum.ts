@@ -1,7 +1,6 @@
 export enum ExerciseTypeEnum {
     AEROBIC = 'aerobic',
-    WEIGHTLIFTING = 'weightlifting',
+    STRENGTH = 'strength',
     BALANCE = 'balance',
-    CALISTHENICS = 'calisthenics',
     STRETCHING = 'stretching'
 }
