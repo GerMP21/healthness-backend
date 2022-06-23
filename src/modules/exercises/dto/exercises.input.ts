@@ -30,7 +30,7 @@ export class CreateExerciseInput {
   @IsNotEmpty()
   @IsEnum(ExerciseTypeEnum)
   @Field(() => ExerciseTypeEnum)
-  status: ExerciseTypeEnum;
+  type: ExerciseTypeEnum;
 
   @IsOptional()
   @IsString()
