@@ -2,7 +2,7 @@ import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { Types as MongooseTypes } from 'mongoose';
 import { ObjectIdScalar } from 'src/common/scalars/object-id.scalar';
 import { Exercise } from './model/exercises.model';
-import { CreateExerciseInput, UpdateExerciseInput } from './dto/exercises.input';
+import { ExerciseInput } from './dto/exercises.input';
 import { ExercisesService } from './exercises.service';
 
 
@@ -26,14 +26,14 @@ export class ExercisesResolver {
   // MUTATIONS
   @Mutation(() => Exercise)
   async createExercise(
-    @Args({ name: 'input', type: () => CreateExerciseInput }) input: CreateExerciseInput) {
+    @Args({ name: 'input', type: () => ExerciseInput }) input: ExerciseInput) {
     return await this.exercisesService.create(input);
   }
 
   @Mutation(() => Exercise, { name: 'updateExercise' })
   async updateExercise(
     @Args({ name: '_id', type: () => ObjectIdScalar }) _id: MongooseTypes.ObjectId,
-    @Args({ name: 'input', type: () => UpdateExerciseInput }) input: UpdateExerciseInput) {
+    @Args({ name: 'input', type: () => ExerciseInput }) input: ExerciseInput) {
     return await this.exercisesService.update(_id, input);
   }
 

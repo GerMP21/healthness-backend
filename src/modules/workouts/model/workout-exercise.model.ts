@@ -8,7 +8,7 @@ import { Exercise } from 'src/modules/exercises/model/exercises.model';
 export class WorkoutExercise {
     @Field(() => Exercise)
     @Prop({ type: MongooseTypes.ObjectId, ref: 'Exercise' })
-    exercises: Exercise;
+    exercise: Exercise;
 
     @Field(() => Number, { nullable: true })
     @Prop()

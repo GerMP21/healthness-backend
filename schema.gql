@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Exercise {
+  _id: ObjectId!
+  name: String!
+  description: String!
+  type: String!
+  equipment: String!
+}
+
+"""MongoDB ObjectId scalar type."""
+scalar ObjectId
+
+type Query {
+  exercises: [Exercise!]!
+  exercise(_id: ObjectId!): Exercise!
+}
+
+type Mutation {
+  createExercise(input: ExerciseInput!): Exercise!
+  updateExercise(_id: ObjectId!, input: ExerciseInput!): Exercise!
+  deleteExercise(_id: ObjectId!): Exercise!
+}
+
+input ExerciseInput {
+  name: String!
+  description: String
+  type: ExerciseTypeEnum!
+  equipment: String
+}
+
+"""Types of exercises"""
+enum ExerciseTypeEnum {
+  AEROBIC
+  STRENGTH
+  BALANCE
+  STRETCHING
+}

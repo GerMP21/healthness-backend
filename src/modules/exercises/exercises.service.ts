@@ -2,7 +2,7 @@ import { Injectable, BadRequestException, NotFoundException } from '@nestjs/comm
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types as MongooseTypes } from 'mongoose';
 import { ExerciseDocument, Exercise } from './model/exercises.model';
-import { CreateExerciseInput, UpdateExerciseInput } from './dto/exercises.input';
+import { ExerciseInput } from './dto/exercises.input';
 
 @Injectable()
 export class ExercisesService {
@@ -29,7 +29,7 @@ export class ExercisesService {
   }
 
 
-  async create(input: CreateExerciseInput) {
+  async create(input: ExerciseInput) {
     try {
       const exercise = new this.exerciseModel(input);
       return await exercise.save();
@@ -39,7 +39,7 @@ export class ExercisesService {
     }
   }
 
-  async update(_id: MongooseTypes.ObjectId, input: UpdateExerciseInput) {
+  async update(_id: MongooseTypes.ObjectId, input: ExerciseInput) {
     const exercise = await this.findOne(_id);
     if (!exercise) throw new NotFoundException(`Exercise #${_id} not found`);
 
