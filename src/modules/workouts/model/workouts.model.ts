@@ -21,7 +21,7 @@ export class Workout {
 
     @Field()
     @Prop()
-    aproxDurationMinutes: number;
+    type: string;
 
     @Field()
     @Prop()
@@ -29,15 +29,12 @@ export class Workout {
 
     @Field()
     @Prop()
-    equipment: string;
-
-    @Field()
-    @Prop()
-    caloriesBurned: number;
+    aproxDurationMinutes: number;
 
     @Field(() => [WorkoutExercise], { nullable: true })
     @Prop({ default: [] })
     exercises: WorkoutExercise[];
 }
 
+export type WorkoutDocument = Workout & Document;
 export const WorkoutSchema = SchemaFactory.createForClass(Workout);

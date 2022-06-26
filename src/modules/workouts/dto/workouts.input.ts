@@ -6,12 +6,14 @@ import {
 import {
     IsString,
     IsNotEmpty,
-    IsOptional,
     MinLength,
     MaxLength,
-    IsEnum
+    IsEnum,
+    IsInt,
+    IsArray
 } from 'class-validator';
 import { WorkoutTypeEnum } from '../../../common/enums/workout-type.enum';
+import { WorkoutExercise } from '../model/workout-exercise.model';
 
 registerEnumType(WorkoutTypeEnum, {
     name: 'WorkoutTypeEnum',
@@ -28,21 +30,24 @@ export class WorkoutInput {
     name: string;
 
     @IsNotEmpty()
+    @IsString()
+    @MinLength(2)
+    @MaxLength(100)
+    @Field(() => String)
+    description: string;
+
+    @IsNotEmpty()
     @IsEnum(WorkoutTypeEnum)
     @Field(() => WorkoutTypeEnum)
     type: WorkoutTypeEnum;
 
-    @IsOptional()
-    @IsString()
-    @MinLength(2)
-    @MaxLength(100)
-    @Field(() => String, { nullable: true })
-    equipment?: string;
+    @IsNotEmpty()
+    @IsInt()
+    @Field(() => Number)
+    aproxDurationMinutes: number;
 
-    @IsOptional()
-    @IsString()
-    @MinLength(5)
-    @MaxLength(200)
-    @Field(() => String, { nullable: true })
-    video?: string;
+    @IsNotEmpty()
+    @IsArray()
+    @Field(() => [WorkoutExercise])
+    exercises: WorkoutExercise[];
 }

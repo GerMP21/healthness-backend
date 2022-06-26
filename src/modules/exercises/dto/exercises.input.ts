@@ -39,7 +39,7 @@ export class ExerciseInput {
   @Field(() => ExerciseTypeEnum)
   type: ExerciseTypeEnum;
 
-  @IsOptional()
+  @IsNotEmpty()
   @IsString()
   @MinLength(2)
   @MaxLength(100)

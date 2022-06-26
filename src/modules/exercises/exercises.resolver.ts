@@ -5,13 +5,11 @@ import { Exercise } from './model/exercises.model';
 import { ExerciseInput } from './dto/exercises.input';
 import { ExercisesService } from './exercises.service';
 
-
 @Resolver(() => Exercise)
 export class ExercisesResolver {
   constructor(private readonly exercisesService: ExercisesService) { }
 
   // QUERIES
-
   @Query(() => [Exercise])
   async exercises(): Promise<Exercise[]> {
     return await this.exercisesService.findAll();

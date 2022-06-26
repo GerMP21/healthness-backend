@@ -1,4 +1,8 @@
-import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  BadRequestException,
+  NotFoundException
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types as MongooseTypes } from 'mongoose';
 import { ExerciseDocument, Exercise } from './model/exercises.model';
@@ -6,8 +10,7 @@ import { ExerciseInput } from './dto/exercises.input';
 
 @Injectable()
 export class ExercisesService {
-  constructor(
-    @InjectModel(Exercise.name) private exerciseModel: Model<ExerciseDocument>) { }
+  constructor(@InjectModel(Exercise.name) private exerciseModel: Model<ExerciseDocument>) {}
 
   async findAll() {
     try {

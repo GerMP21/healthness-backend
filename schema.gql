@@ -13,15 +13,29 @@ type Exercise {
 """MongoDB ObjectId scalar type."""
 scalar ObjectId
 
+type Workout {
+  _id: ObjectId!
+  name: String!
+  description: String!
+  type: String!
+  intensity: String!
+  aproxDurationMinutes: Int!
+}
+
 type Query {
   exercises: [Exercise!]!
   exercise(_id: ObjectId!): Exercise!
+  workouts: [Workout!]!
+  workout(_id: ObjectId!): Workout!
 }
 
 type Mutation {
   createExercise(input: ExerciseInput!): Exercise!
   updateExercise(_id: ObjectId!, input: ExerciseInput!): Exercise!
   deleteExercise(_id: ObjectId!): Exercise!
+  createWorkout(input: WorkoutInput!): Workout!
+  updateWorkout(_id: ObjectId!, input: WorkoutInput!): Workout!
+  deleteWorkout(_id: ObjectId!): Workout!
 }
 
 input ExerciseInput {
@@ -37,4 +51,21 @@ enum ExerciseTypeEnum {
   STRENGTH
   BALANCE
   STRETCHING
+}
+
+input WorkoutInput {
+  name: String!
+  description: String!
+  type: WorkoutTypeEnum!
+  aproxDurationMinutes: Int!
+}
+
+"""Types of workouts"""
+enum WorkoutTypeEnum {
+  CARDIO
+  STRENGTH
+  ENDURANCE
+  BALANCE
+  AGILITY
+  FLEXIBILITY
 }
