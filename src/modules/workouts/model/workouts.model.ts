@@ -31,8 +31,8 @@ export class Workout {
     @Prop()
     aproxDurationMinutes: number;
 
-    @Field(() => [WorkoutExercise], { nullable: true })
-    @Prop({ default: [] })
+    @Field(() => [WorkoutExercise])
+    @Prop()
     exercises: WorkoutExercise[];
 }
 

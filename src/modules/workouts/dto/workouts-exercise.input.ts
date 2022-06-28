@@ -12,32 +12,7 @@ import {
 import { ObjectIdScalar } from 'src/common/scalars/object-id.scalar';
 
 @InputType()
-export class CreateWorkoutExerciseInput {
-    @IsNotEmpty()
-    @IsString()
-    @Field(() => ObjectIdScalar)
-    exercise: ObjectIdScalar;
-
-    @ValidateIf(o => !o.durationSeconds || o.reps)
-    @IsNotEmpty()
-    @IsNumber()
-    @Field(() => Number)
-    sets: number;
-
-    @ValidateIf(o => !o.durationSeconds || o.sets)
-    @IsNotEmpty()
-    @IsNumber()
-    @Field(() => Number, { nullable: true })
-    reps: number;
-
-    @IsOptional()
-    @IsNumber()
-    @Field(() => Number, { nullable: true })
-    durationSeconds?: number;
-}
-
-@InputType()
-export class UpdateWorkoutExerciseInput {
+export class WorkoutExerciseInput {
     @IsNotEmpty()
     @IsString()
     @Field(() => ObjectIdScalar)

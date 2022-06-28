@@ -13,6 +13,13 @@ type Exercise {
 """MongoDB ObjectId scalar type."""
 scalar ObjectId
 
+type WorkoutExercise {
+  exercise: Exercise!
+  sets: Int
+  reps: Int
+  durationSeconds: Int
+}
+
 type Workout {
   _id: ObjectId!
   name: String!
@@ -20,6 +27,7 @@ type Workout {
   type: String!
   intensity: String!
   aproxDurationMinutes: Int!
+  exercises: [WorkoutExercise!]!
 }
 
 type Query {
@@ -58,6 +66,7 @@ input WorkoutInput {
   description: String!
   type: WorkoutTypeEnum!
   aproxDurationMinutes: Int!
+  exercises: [WorkoutExerciseInput!]!
 }
 
 """Types of workouts"""
@@ -68,4 +77,11 @@ enum WorkoutTypeEnum {
   BALANCE
   AGILITY
   FLEXIBILITY
+}
+
+input WorkoutExerciseInput {
+  exercise: ObjectId!
+  sets: Int!
+  reps: Int
+  durationSeconds: Int
 }

@@ -7,6 +7,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types as MongooseTypes } from 'mongoose';
 import { WorkoutDocument, Workout } from './model/workouts.model';
 import { WorkoutInput } from './dto/workouts.input';
+import { Exercise } from '../exercises/model/exercises.model';
 
 @Injectable()
 export class WorkoutsService {
@@ -16,6 +17,7 @@ export class WorkoutsService {
         try {
             return await this.workoutModel
                 .find({})
+                .populate({ path: 'exercises', model: Exercise.name })
         } catch (error) {
             throw new BadRequestException();
         }

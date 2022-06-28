@@ -13,7 +13,7 @@ import {
     IsArray
 } from 'class-validator';
 import { WorkoutTypeEnum } from '../../../common/enums/workout-type.enum';
-import { WorkoutExercise } from '../model/workout-exercise.model';
+import { WorkoutExerciseInput } from './workouts-exercise.input';
 
 registerEnumType(WorkoutTypeEnum, {
     name: 'WorkoutTypeEnum',
@@ -48,6 +48,6 @@ export class WorkoutInput {
 
     @IsNotEmpty()
     @IsArray()
-    @Field(() => [WorkoutExercise])
-    exercises: WorkoutExercise[];
+    @Field(() => [WorkoutExerciseInput])
+    exercises: WorkoutExerciseInput[];
 }
