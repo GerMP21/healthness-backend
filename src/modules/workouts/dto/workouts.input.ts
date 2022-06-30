@@ -13,12 +13,19 @@ import {
     IsArray
 } from 'class-validator';
 import { WorkoutTypeEnum } from '../../../common/enums/workout-type.enum';
+import { WorkoutIntensityEnum } from '../../../common/enums/workout-intensity.enum';
 import { WorkoutExerciseInput } from './workouts-exercise.input';
 
 registerEnumType(WorkoutTypeEnum, {
     name: 'WorkoutTypeEnum',
     description: 'Types of workouts'
 });
+
+registerEnumType(WorkoutIntensityEnum, {
+    name: 'WorkoutIntensityEnum',
+    description: 'Intensity of workouts'
+});
+
 
 @InputType()
 export class WorkoutInput {
@@ -32,7 +39,7 @@ export class WorkoutInput {
     @IsNotEmpty()
     @IsString()
     @MinLength(2)
-    @MaxLength(100)
+    @MaxLength(500)
     @Field(() => String)
     description: string;
 
@@ -40,6 +47,11 @@ export class WorkoutInput {
     @IsEnum(WorkoutTypeEnum)
     @Field(() => WorkoutTypeEnum)
     type: WorkoutTypeEnum;
+
+    @IsNotEmpty()
+    @IsEnum(WorkoutIntensityEnum)
+    @Field(() => WorkoutIntensityEnum)
+    intensity: WorkoutIntensityEnum;
 
     @IsNotEmpty()
     @IsInt()

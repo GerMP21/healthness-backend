@@ -17,7 +17,7 @@ export class WorkoutsService {
         try {
             return await this.workoutModel
                 .find({})
-                .populate({ path: 'exercises', model: Exercise.name })
+                .populate("exercises", "name")
         } catch (error) {
             throw new BadRequestException();
         }
@@ -27,6 +27,7 @@ export class WorkoutsService {
         try {
             return await this.workoutModel
                 .findOne({ _id })
+                .populate({ path: 'exercises', model: Exercise.name })
                 .exec();
         } catch (error) {
             throw new NotFoundException(`Workout #${_id} not found`);

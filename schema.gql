@@ -65,6 +65,7 @@ input WorkoutInput {
   name: String!
   description: String!
   type: WorkoutTypeEnum!
+  intensity: WorkoutIntensityEnum!
   aproxDurationMinutes: Int!
   exercises: [WorkoutExerciseInput!]!
 }
@@ -77,6 +78,13 @@ enum WorkoutTypeEnum {
   BALANCE
   AGILITY
   FLEXIBILITY
+}
+
+"""Intensity of workouts"""
+enum WorkoutIntensityEnum {
+  MILD
+  MEDIUM
+  INTENSE
 }
 
 input WorkoutExerciseInput {
